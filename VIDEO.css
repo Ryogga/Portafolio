@@ -1,0 +1,46 @@
+.video-card{
+  width:100%;
+  max-width:1100px;
+  margin:auto;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 20px 50px rgba(0,0,0,0.15);
+  background:#efe5d7;
+}
+
+/* Barra tipo ventana (estilo Mac) */
+.video-header{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 16px;
+  background:#e2d6c6;
+  border-bottom:1px solid rgba(0,0,0,0.1);
+}
+
+.video-header p{
+  margin-left:10px;
+  font-size:0.9rem;
+  color:#333;
+}
+
+/* Botones estilo ventana */
+.dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+}
+
+.dot.red{ background:#ff5f56; }
+.dot.yellow{ background:#ffbd2e; }
+.dot.green{ background:#27c93f; }
+
+.video-body{
+  background:#000;
+}
+
+.video-body video{
+  width:100%;
+  height:auto;
+  display:block;
+}

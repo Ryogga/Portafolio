@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Portafolio Multimedia</title>
+
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="VIDEO.css">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#f5efe6;
+      color:#1e1e1e;
+      font-family:'Montserrat', sans-serif;
+      overflow-x:hidden;
+    }
+
+    /* NAVBAR */
+
+    header{
+      width:100%;
+      position:fixed;
+      top:0;
+      z-index:1000;
+      background:rgba(245,239,230,0.95);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(0,0,0,0.08);
+    }
+
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:22px 7%;
+    }
+
+    .logo{
+      font-size:1rem;
+      letter-spacing:2px;
+      font-weight:600;
+      text-transform:uppercase;
+    }
+
+    nav ul{
+      display:flex;
+      gap:35px;
+      list-style:none;
+    }
+
+    nav ul li a{
+      text-decoration:none;
+      color:#1e1e1e;
+      font-size:0.9rem;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      opacity:0.6;
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:auto;
+      padding-top:100px;
+      overflow:hidden;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      width:100%;
+      height:430px;
+      position:relative;
+      z-index:1;
+    }
+
+    .hero-grid img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      filter:brightness(90%);
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      padding:80px 7% 60px;
+      display:grid;
+      grid-template-columns:1.5fr 1fr;
+      gap:60px;
+      align-items:center;
+      background:#f5efe6;
+    }
+
+    .hero-content h1{
+      font-family:'Anton', sans-serif;
+      font-size:7rem;
+      line-height:0.9;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      word-break:break-word;
+    }
+
+    .hero-side{
+      padding-bottom:10px;
+    }
+
+    .hero-side h2{
+      font-size:2rem;
+      text-transform:uppercase;
+      margin-bottom:10px;
+    }
+
+    .hero-side p{
+      line-height:1.8;
+      color:#5b5b5b;
+      margin-bottom:30px;
+    }
+
+    .hero-btn{
+      display:inline-block;
+      padding:14px 30px;
+      border:1px solid #1e1e1e;
+      text-decoration:none;
+      color:#1e1e1e;
+      transition:0.3s;
+      font-size:0.9rem;
+      letter-spacing:1px;
+    }
+
+    .hero-btn:hover{
+      background:#1e1e1e;
+      color:#f5efe6;
+    }
+
+    /* SECCIONES */
+
+    section{
+      padding:120px 7%;
+    }
+
+    .section-title{
+      margin-bottom:70px;
+    }
+
+    .section-title h2{
+      font-family:'Anton', sans-serif;
+      font-size:5rem;
+      text-transform:uppercase;
+      line-height:1;
+      margin-bottom:15px;
+    }
+
+    .section-title p{
+      max-width:700px;
+      line-height:1.8;
+      color:#666;
+    }
+
+    /* TARJETAS */
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:#efe5d7;
+      padding:40px;
+      transition:0.4s;
+      border:1px solid rgba(0,0,0,0.08);
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+    }
+
+    .card h3{
+      font-size:1.4rem;
+      margin-bottom:20px;
+      text-transform:uppercase;
+    }
+
+    .card p{
+      color:#5e5e5e;
+      line-height:1.9;
+    }
+
+    /* MÉTRICAS */
+
+    .metrics{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:25px;
+    }
+
+    .metric-box{
+      background:#e7dccd;
+      padding:45px 20px;
+      text-align:center;
+    }
+
+    .metric-box h3{
+      font-family:'Anton', sans-serif;
+      font-size:4rem;
+      margin-bottom:10px;
+    }
+
+    .metric-box p{
+      letter-spacing:1px;
+      text-transform:uppercase;
+      font-size:0.9rem;
+    }
+
+    /* VIDEO */
+
+    .video-container{
+      width:100%;
+      display:flex;
+      justify-content:center;
+    }
+
+    iframe{
+      width:100%;
+      max-width:1100px;
+      height:600px;
+      border:none;
+    }
+
+    /* TIMELINE */
+
+    .timeline{
+      display:flex;
+      flex-direction:column;
+      gap:30px;
+    }
+
+    .timeline-item{
+      border-left:2px solid #1e1e1e;
+      padding-left:25px;
+    }
+
+    .timeline-item h3{
+      margin-bottom:10px;
+      font-size:1.5rem;
+      text-transform:uppercase;
+    }
+
+    .timeline-item p{
+      color:#666;
+      line-height:1.8;
+    }
+
+    /* EQUIPO */
+
+    .team{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .member{
+      text-align:center;
+    }
+
+    .member img{
+      width:100%;
+      height:350px;
+      object-fit:cover;
+      margin-bottom:20px;
+    }
+
+    .member h3{
+      font-size:1.3rem;
+      text-transform:uppercase;
+      margin-bottom:10px;
+    }
+
+    .member p{
+      color:#666;
+      letter-spacing:1px;
+    }
+
+    /* FOOTER */
+
+    footer{
+      padding:60px 7%;
+      border-top:1px solid rgba(0,0,0,0.1);
+      text-align:center;
+    }
+
+    footer p{
+      color:#666;
+      line-height:2;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:1000px){
+
+      .hero-content{
+        grid-template-columns:1fr;
+      }
+
+      .hero-content h1{
+        font-size:6rem;
+      }
+
+    }
+
+    @media(max-width:768px){
+
+      nav{
+        flex-direction:column;
+        gap:20px;
+      }
+
+      nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+      .hero-grid{
+        grid-template-columns:1fr 1fr;
+        height:auto;
+      }
+
+      .hero-grid img{
+        height:250px;
+      }
+
+      .hero-content h1{
+        font-size:4rem;
+      }
+
+      .section-title h2{
+        font-size:3rem;
+      }
+
+      iframe{
+        height:300px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <header>
+
+    <nav>
+
+      <div class="logo">
+        Sprint Multimedia Izabel Films
+      </div>
+
+      <ul>
+        <li><a href="#proyecto">Proyecto</a></li>
+        <li><a href="#prototipo">Validación</a></li>
+        <li><a href="#metricas">Métricas</a></li>
+        <li><a href="#pitch">Pitch</a></li>
+        <li><a href="#equipo">Equipo</a></li>
+      </ul>
+
+    </nav>
+
+  </header>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-grid">
+
+      <img src="Imagenes/1.jpg">
+
+      <img src="Imagenes/2.jpg">
+
+      <img src="Imagenes/3.jpg">
+
+      <img src="Imagenes/4.jpg">
+
+    </div>
+
+    <div class="hero-content">
+
+      <h1>
+        PORTAFOLIO
+      </h1>
+
+      <div class="hero-side">
+
+        <h2>
+          Sprint Development
+        </h2>
+
+        <p>
+          Proyecto desarrollado bajo metodología Scrum,
+          enfocado en validación multimedia, experiencia
+          de usuario, métricas ágiles y mejora continua
+          mediante pruebas reales y análisis de calidad.
+        </p>
+
+        <a href="#proyecto" class="hero-btn">
+          Explorar Proyecto
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SOBRE EL PROYECTO -->
+
+  <section id="proyecto">
+
+    <div class="section-title">
+
+      <h2>
+        Sobre el Proyecto
+      </h2>
+
+      <p>
+        Evaluación integral del desempeño del sprint
+        mediante métricas ágiles y validación de calidad
+        del producto multimedia desarrollado.
+      </p>
+
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+
+        <h3>Problemática</h3>
+
+        <p>
+          El sprint presentó una distribución irregular
+          del trabajo, con acumulación de tareas y
+          cierres concentrados en la etapa final.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>Solución</h3>
+
+        <p>
+          Se implementaron prácticas Scrum,
+          métricas de seguimiento y validación
+          continua para mejorar la entrega
+          progresiva de valor.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>Resultados</h3>
+
+        <p>
+          El equipo completó el 100% del alcance
+          comprometido alcanzando 53 Story Points
+          durante el sprint.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+<!-- PROTOTIPO MULTIMEDIA -->
+
+<section id="multimedia">
+
+  <div class="section-title">
+
+    <h2>
+      Prototipo Multimedia
+    </h2>
+
+    <p>
+      Visualización del producto multimedia funcional
+      desarrollado durante el sprint mediante
+      metodologías ágiles Scrum.
+    </p>
+
+  </div>
+
+  <div class="prototype-gallery">
+
+    <img src="Imagenes/Responsive.jpg" alt="Landing page principal">
+
+    <img src="Imagenes/axz.png" alt="Vista responsive del proyecto">
+
+  </div>
+
+</section>
+
+<div style="margin-top:40px;">
+
+  <a href="https://heartfelt-bonbon-a597df.netlify.app/"
+  class="hero-btn"
+  target="_blank">
+
+    Ver Prototipo Funcional
+
+  </a>
+
+</div>
+
+  <!-- VALIDACIÓN -->
+
+  <section id="prototipo">
+
+    <div class="section-title">
+
+      <h2>
+        Validación Multimedia
+      </h2>
+
+      <p>
+        Evaluación de usabilidad, accesibilidad
+        y compatibilidad del producto multimedia.
+      </p>
+
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+
+        <h3>Usabilidad</h3>
+
+        <p>
+          Validación mediante pruebas de usuario
+          y análisis de interacción multimedia.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>Accesibilidad</h3>
+
+        <p>
+          Optimización de contraste, tipografía,
+          atributos ALT y experiencia inclusiva.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>Compatibilidad</h3>
+
+        <p>
+          Evaluación responsive y funcionamiento
+          estable en múltiples dispositivos.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+<!-- MÉTRICAS -->
+
+<section id="metricas">
+
+  <div class="section-title">
+
+    <h2>
+      Métricas de Validación
+    </h2>
+
+    <p>
+      Resultados obtenidos mediante pruebas
+      Lighthouse realizadas en computador
+      y dispositivos móviles.
+    </p>
+
+  </div>
+
+  <div class="cards">
+
+    <!-- COMPUTADOR -->
+
+    <div class="card">
+
+      <h3>
+        Pruebas en Computador
+      </h3>
+
+      <p>
+        Rendimiento: 71%
+      </p>
+
+      <p>
+        Accesibilidad: 80%
+      </p>
+
+      <p>
+        Prácticas Recomendadas: 96%
+      </p>
+
+      <p>
+        SEO: 82%
+      </p>
+
+    </div>
+
+    <!-- CELULAR -->
+
+    <div class="card">
+
+      <h3>
+        Pruebas en Celular
+      </h3>
+
+      <p>
+        Rendimiento: 75%
+      </p>
+
+      <p>
+        Accesibilidad: 74%
+      </p>
+
+      <p>
+        Prácticas Recomendadas: 96%
+      </p>
+
+      <p>
+        SEO: 82%
+      </p>
+
+    </div>
+
+    <!-- SCRUM -->
+
+    <div class="card">
+
+      <h3>
+        Métricas Scrum
+      </h3>
+
+      <p>
+        Cumplimiento del Alcance: 100%
+      </p>
+
+      <p>
+        Story Points Completados: 53
+      </p>
+
+      <p>
+        Sprint Finalizado Correctamente
+      </p>
+
+      <p>
+        Validación Continua del Producto
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+  <!-- VIDEO -->
+
+<section id="pitch">
+
+  <div class="section-title">
+    <h2>Pitch Profesional</h2>
+    <p>Presentación del sprint, métricas Scrum, validación multimedia y resultados obtenidos.</p>
+  </div>
+
+<div class="video-card">
+
+  <div class="video-header">
+    <span class="dot red"></span>
+    <span class="dot yellow"></span>
+    <span class="dot green"></span>
+    <p>Pitch del Proyecto Multimedia</p>
+  </div>
+
+  <div class="video-body">
+    <video controls poster="Imagenes/Responsive.jpg">
+      <source src="Video/pitch.mp4" type="video/mp4">
+      Tu navegador no soporta video HTML5.
+    </video>
+  </div>
+
+</div>
+
+</section>
+  
+  <!-- ROADMAP -->
+
+  <section>
+
+    <div class="section-title">
+
+      <h2>
+        Plan de Mejora
+      </h2>
+
+      <p>
+        Acciones orientadas a fortalecer
+        la experiencia de usuario,
+        optimización técnica y prácticas Scrum.
+      </p>
+
+    </div>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+
+        <h3>UX/UI</h3>
+
+        <p>
+          Mejora de accesibilidad, contraste,
+          tamaño de tipografía y diseño responsive.
+        </p>
+
+      </div>
+
+      <div class="timeline-item">
+
+        <h3>Optimización</h3>
+
+        <p>
+          Compresión de imágenes,
+          implementación de lazy loading
+          y mejora de rendimiento.
+        </p>
+
+      </div>
+
+      <div class="timeline-item">
+
+        <h3>Backlog</h3>
+
+        <p>
+          Reorganización de tareas y reducción
+          de acumulación de Work In Progress.
+        </p>
+
+      </div>
+
+      <div class="timeline-item">
+
+        <h3>Scrum</h3>
+
+        <p>
+          Fortalecimiento de dailies y seguimiento
+          continuo mediante ClickUp.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- EQUIPO -->
+
+  <section id="equipo">
+
+    <div class="section-title">
+
+      <h2>
+        Equipo Scrum
+      </h2>
+
+      <p>
+        Integrantes y roles del sprint multimedia.
+      </p>
+
+    </div>
+
+    <div class="team">
+
+      <div class="member">
+
+        <img src="Imagenes/Andrea.jpeg">
+
+        <h3>
+          Andrea Escalante
+        </h3>
+
+        <p>
+          Scrum Master
+        </p>
+
+      </div>
+
+      <div class="member">
+
+        <img src="Imagenes/Floraime.jpeg">
+
+        <h3>
+          Floraime Ramírez
+        </h3>
+
+        <p>
+          Product Owner
+        </p>
+
+      </div>
+
+      <div class="member">
+
+        <img src="Imagenes/Andric.jpeg">
+
+        <h3>
+          Andric Samboni
+        </h3>
+
+        <p>
+          Developer Lead
+        </p>
+
+      </div>
+
+      <div class="member">
+
+        <img src="Imagenes/Karen.jpeg">
+
+        <h3>
+          Karen Giraldo
+        </h3>
+
+        <p>
+          Designer & Dev
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- REFLEXIÓN -->
+
+  <section>
+
+    <div class="section-title">
+
+      <h2>
+        Reflexión
+      </h2>
+
+      <p>
+        Aprendizajes obtenidos durante
+        el desarrollo colaborativo del sprint.
+      </p>
+
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+
+        <h3>Metodologías Ágiles</h3>
+
+        <p>
+          Aplicación práctica de Scrum,
+          seguimiento mediante métricas
+          y control del sprint.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>Validación Multimedia</h3>
+
+        <p>
+          Evaluación de accesibilidad,
+          compatibilidad y experiencia
+          de usuario mediante pruebas reales.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>Mejora Continua</h3>
+
+        <p>
+          Identificación de oportunidades
+          para optimizar flujo de trabajo
+          y entrega incremental de valor.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>
+      Universidad Nacional Abierta y a Distancia — UNAD
+    </p>
+
+    <p>
+      Presentación y evaluación del proyecto final. | Fase 5
+    </p>
+
+  </footer>
+
+</body>
+</html>
